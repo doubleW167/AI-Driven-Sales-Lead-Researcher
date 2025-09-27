@@ -42,7 +42,7 @@
 ## Export / CRM Integration
 - **CSV export** → MVP
 - Optional Phase 2: HubSpot API integration for direct import
-
+gt
 **Role:** Allows sales reps to use AI-generated leads in real workflows.
 
 ---
