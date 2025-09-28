@@ -2,14 +2,25 @@ version: "3.9"
 
 services:
   frontend:
-    build: ./Front-end
+    build:
+      context: ./front_end
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./front_end:/app
+      - /app/node_modules
     ports:
-      - "3000:80"
+      - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
     depends_on:
-      - backend
+      - backend    
+
+
 
   backend:
-    build: ./Back-end
+    build: ./back_end
+    volumes:
+      - ./back_end:/app
     ports:
       - "8000:8000"
     env_file:
