@@ -15,14 +15,13 @@ services:
     depends_on:
       - backend    
 
-
-
   backend:
     build: ./back_end
     volumes:
-      - ./back_end:/app
+    - ./back_end:/app/back_end
     ports:
-      - "8000:8000"
+    - "8000:8000"
+    command: uvicorn back_end.main:app --host 0.0.0.0 --port 8000 --reload
     env_file:
       - .env
     depends_on:
